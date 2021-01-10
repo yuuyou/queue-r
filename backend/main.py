@@ -7,7 +7,7 @@ app = FastAPI()
 def default_route():
     return {
         "message": "Welcome to the simple QR system backend",
-        "version": "beta-v1",
+        "version": "beta-v1.0.0",
         "developer": "Justin",
         "license": "MIT License",
     }
@@ -20,11 +20,18 @@ def get_qr_code(request: Request):
     }
 
 
-@app.post("/send-verification"):
-def send_email_verification():
+@app.post("/verification-request")
+def send_verification_request():
     return {
-        "message": "This is the backend to start the email verification workflow."
+        "message": "This is the backend to generate the verification request."
     }
+
+@app.post("/verification-approval")
+def verification_approval:
+    return {
+        "message": "This is the backend to approve the verification request."
+    }
+
 
 if __name__ == "__main__":
     import uvicorn
