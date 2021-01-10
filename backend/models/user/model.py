@@ -6,3 +6,4 @@ class User(pydantic.BaseModel):
     email: pydantic.EmailStr
     telephone: str = ""
     jwt_token: str = ""
+    temp_pass: str
