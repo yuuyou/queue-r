@@ -1,0 +1,2 @@
+class QueueRepository(object):
+    pass

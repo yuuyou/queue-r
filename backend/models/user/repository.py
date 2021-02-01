@@ -1,7 +1,7 @@
 # User CRUD
 import sqlalchemy
 from sqlalchemy.orm import Session
-from .schema import User as UserRepo
+from .schema import User as UserSchema
 from .model import User as UserModel
 
 
@@ -11,7 +11,7 @@ def get_user_by_id(db: Session, user_id: str):
 
 def create_user(db: Session, user: UserModel):
     # use schema when adding stuff not the model, model is purely for validation sake
-    db_user = UserRepo(**user.dict())
+    db_user = UserSchema(**user.dict())
     db.add(db_user)
     db.commit()
     db.refresh(db_user)
