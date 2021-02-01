@@ -68,6 +68,10 @@ def create_user(user: user_model, jwt_token: str = Cookie(...)):
     user = user_repo.create_user(db=db.SessionLocal(), user=user)
     return user
 
+@app.post("/queue")
+def add_to_queue():
+    pass
+
 if __name__ == "__main__":
     import uvicorn
 
