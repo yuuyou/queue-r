@@ -50,7 +50,7 @@ def send_verification_request(email: str = Body(..., embed=True)):
 
 @app.post("/verification-approval")
 def verification_approval(vr: vr_model):
-    jwt_token = vr_repo.verify_user(db=db.SessionLocal(), verification=vr)
+    jwt_token = vr_controller.verify_user(db=db.SessionLocal(), verification=vr)
     return {"jwt_token": jwt_token}
 
 
